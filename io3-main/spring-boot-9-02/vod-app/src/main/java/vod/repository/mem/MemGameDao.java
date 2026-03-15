@@ -1,0 +1,40 @@
+package vod.repository.mem;
+
+import org.springframework.stereotype.Component;
+import vod.repository.GameDao;
+import vod.model.Platform;
+import vod.model.Studio;
+import vod.model.Game;
+
+import java.util.List;
+import java.util.stream.Collectors;
+@Component
+public class MemGameDao implements GameDao {
+    @Override
+    public List<Game> findAll() {
+        return SampleData.games;
+    }
+
+    @Override
+    public Game findById(int id) {
+        return SampleData.games.stream().filter(m -> m.getId() == id).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Game> findByDirector(Studio d) {
+       return SampleData.games.stream().filter(m -> m.getDirector() == d).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Game> findByCinema(Platform c) {
+        return SampleData.games.stream().filter(m -> m.getCinemas().contains(c)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Game add(Game m) {
+        int max = SampleData.games.stream().max((m1, m2) -> m1.getId() - m2.getId()).get().getId();
+        m.setId(++max);
+        SampleData.games.add(m);
+        return m;
+    }
+}

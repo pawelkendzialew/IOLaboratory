@@ -2,13 +2,12 @@ package vod;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import vod.model.Cinema;
-import vod.service.CinemaService;
+import vod.model.Platform;
+import vod.service.PlatformService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,9 +15,9 @@ import java.util.List;
 @Component
 @Slf4j
 public class VodComponent implements CommandLineRunner, ApplicationListener<ContextRefreshedEvent> {
-    private final CinemaService cinemaService;
+    private final PlatformService platformService;
 
-    public VodComponent(CinemaService cinemaService) {this.cinemaService = cinemaService;}
+    public VodComponent(PlatformService platformService) {this.platformService = platformService;}
     @PostConstruct
     void init(){
         log.info("in post construct. ");}
@@ -30,9 +29,9 @@ public class VodComponent implements CommandLineRunner, ApplicationListener<Cont
      @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("on context refreshed");
-        List<Cinema>cinemas=cinemaService.getAllCinemas();
-        log.info("{} cinema found.", cinemas.size());
-     cinemas.forEach(cinema->log.info("{}", cinema));
+        List<Platform> platforms = platformService.getAllPlatforms();
+        log.info("{} platform found.", platforms.size());
+     platforms.forEach(platform->log.info("{}", platform));
     }
 
 }

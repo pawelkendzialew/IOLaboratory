@@ -2,15 +2,9 @@ package vod.service;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import vod.repository.CinemaDao;
-import vod.repository.MovieDao;
-import vod.repository.mem.MemCinemaDao;
-import vod.repository.mem.MemMovieDao;
-import vod.model.Cinema;
-import vod.service.impl.CinemaServiceBean;
+import vod.model.Platform;
 
 import java.util.List;
-import java.util.Set;
 
 public class VodServiceMain {
 
@@ -28,14 +22,14 @@ public class VodServiceMain {
         //ta impelemntacja potrzebuje w swoim konstruktorze dostarczyc obiekty dao
         //tu mamy znowu dwa intefejsy i trzeba sie zastanowic z których impelemntacji skorzystać
        // CinemaService service = new CinemaServiceBean(cinemaDao, movieDao);
-        CinemaService service = context.getBean(CinemaService.class);
-        CinemaService service2 = context.getBean(CinemaService.class);
+        PlatformService service = context.getBean(PlatformService.class);
+        PlatformService service2 = context.getBean(PlatformService.class);
         // service use
         //cinemaservice ma api zwraca wsyzstkie kina
       //  tylko że ten serwis trzeba przygotowac, trzeba pozyskać tą usługe.
-        List<Cinema> cinemas = service.getAllCinemas();
-        System.out.println(cinemas.size() + " cinemas found:");
-        cinemas.forEach(System.out::println);
+        List<Platform> platforms = service.getAllPlatforms();
+        System.out.println(platforms.size() + " platforms found:");
+        platforms.forEach(System.out::println);
 
         String foo=context.getBean(String.class);
         System.out.println("foo string: "+ foo);
