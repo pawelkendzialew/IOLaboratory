@@ -8,18 +8,18 @@ import java.util.List;
 public interface GameService {
 
 
-    List<Game> getAllMovies();
+    List<Game> getAllGames();
 
-    List<Game> getMoviesByDirector(Studio d);
+    List<Game> getGamesByStudio(Studio d);
 
-    Game getMovieById(int id);
+    Game getGameById(int id);
 
-    Game addMovie(Game m);
+    Game addGame(Game m);
 
 
-    List<Studio> getAllDirectors();
+    List<Studio> getAllStudios();
 
-    Studio getDirectorById(int id);
+    Studio getStudioById(int id);
 
-    Studio addDirector(Studio d);
+    Studio addStudio(Studio d);
 }

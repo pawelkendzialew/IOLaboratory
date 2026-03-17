@@ -9,7 +9,7 @@ import java.util.List;
 public class VodServiceMain {
 
     public static void main(String[] args) {
-        System.out.println("Let's find cinemas!");
+        System.out.println("Let's find platforms!");
 
         // service preparation przygotowanie serwisu który używa repo jednego cinemaservice
         //chcemy wyswielic lisę kin, repo dają dostęp do nich, ale z punktu widzenia apliakcji

@@ -8,6 +8,7 @@ import vod.model.Game;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Component
 public class MemGameDao implements GameDao {
     @Override
@@ -17,24 +18,26 @@ public class MemGameDao implements GameDao {
 
     @Override
     public Game findById(int id) {
-        return SampleData.games.stream().filter(m -> m.getId() == id).findFirst().orElse(null);
+        return SampleData.games.stream().filter(g -> g.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Game> findByDirector(Studio d) {
-       return SampleData.games.stream().filter(m -> m.getDirector() == d).collect(Collectors.toList());
+    public List<Game> findByStudio(Studio s) { // Zmieniona nazwa
+        // Zmienione g.getDirector() na g.getStudio()
+        return SampleData.games.stream().filter(g -> g.getStudio() == s).collect(Collectors.toList());
     }
 
     @Override
-    public List<Game> findByCinema(Platform c) {
-        return SampleData.games.stream().filter(m -> m.getCinemas().contains(c)).collect(Collectors.toList());
+    public List<Game> findByPlatform(Platform p) { // Zmieniona nazwa
+        // Zmienione g.getCinemas() na g.getPlatforms()
+        return SampleData.games.stream().filter(g -> g.getPlatforms().contains(p)).collect(Collectors.toList());
     }
 
     @Override
-    public Game add(Game m) {
-        int max = SampleData.games.stream().max((m1, m2) -> m1.getId() - m2.getId()).get().getId();
-        m.setId(++max);
-        SampleData.games.add(m);
-        return m;
+    public Game add(Game g) {
+        int max = SampleData.games.stream().max((g1, g2) -> g1.getId() - g2.getId()).get().getId();
+        g.setId(++max);
+        SampleData.games.add(g);
+        return g;
     }
 }

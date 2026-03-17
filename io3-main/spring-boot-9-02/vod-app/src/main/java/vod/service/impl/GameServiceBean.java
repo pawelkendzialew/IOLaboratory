@@ -40,12 +40,12 @@ public class GameServiceBean implements GameService {
 
     public List<Game> getGamesByStudio(Studio d) {
         log.info("serching games by studio " + d.getId());
-        return gameDao.findByDirector(d);
+        return gameDao.findByStudio(d);
     }
 
     public List<Game> getGamesInPlatform(Platform c) {
         log.info("searching games in platform " + c.getId());
-        return gameDao.findByCinema(c);
+        return gameDao.findByPlatform(c);
     }
 
     public Game getGameById(int id) {

@@ -75,7 +75,7 @@ class SampleData {
 
     private static void bind(Platform p, Game g) {
         p.addGame(g);
-        g.addPlatform(p);
+        g.addPlatforms(p);
     }
 
     private static void bind(Game g, Studio s) {

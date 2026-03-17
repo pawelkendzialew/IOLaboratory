@@ -15,4 +15,5 @@ public interface PlatformService {
 
     List<Game> getGamesInPlatform(Platform c);
 
+    Platform addPlatform(Platform platform);
 }

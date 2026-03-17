@@ -68,11 +68,11 @@ public class Game {
         return platforms;
     }
 
-    public void setPlatform(List<Platform> platforms) {
+    public void setPlatforms(List<Platform> platforms) {
         this.platforms = platforms;
     }
 
-    public void addPlatform(Platform c) {
+    public void addPlatforms(Platform c) {
         this.platforms.add(c);
     }
 

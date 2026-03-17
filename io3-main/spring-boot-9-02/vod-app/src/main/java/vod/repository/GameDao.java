@@ -12,9 +12,9 @@ public interface GameDao {
 
     Game findById(int id);
 
-    List<Game> findByDirector(Studio d);
+    List<Game> findByStudio(Studio d);
 
-    List<Game> findByCinema(Platform c);
+    List<Game> findByPlatform(Platform c);
 
     Game add(Game m);
 

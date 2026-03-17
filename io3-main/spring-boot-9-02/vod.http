@@ -1,0 +1,20 @@
+### GET all platforms
+GET https://localhost:8080/webapi/platforms
+### GET all platforms with params
+GET https://localhost:8080/webapi/platforms?pharse=abc
+custom-header: custom-value
+Cookie: some-cookie= some-value
+### GET platform by id
+GET https://localhost:8080/webapi/platforms/1
+Accept: application/xml
+### GET platform playing game
+GET https://localhost:8080/webapi/games/1/platforms
+Accept: application/json
+
+## create new platform
+POST https://localhost:8080/webapi/platforms
+Content-Type: application/json
+{
+"name": "PC (Microsoft Store)",
+"logo": "url_logo"
+}
