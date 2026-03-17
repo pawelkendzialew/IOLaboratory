@@ -50,6 +50,7 @@ public class PlatformServiceBean implements PlatformService {
         log.info("searching platform by game " + m.getId());
         return platformDao.findByGame(m);
     }
+
     @Override
     public Platform addPlatform(Platform platform) {
         log.info("about to add platform " + platform.getName());

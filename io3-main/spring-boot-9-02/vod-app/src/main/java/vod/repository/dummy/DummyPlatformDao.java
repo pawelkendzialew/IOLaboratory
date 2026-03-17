@@ -15,4 +15,8 @@ public class DummyPlatformDao implements PlatformDao {
     public Platform findById(int id) {return null;}
     @Override
     public List<Platform> findByGame(Game m) {return List.of();}
+    @Override
+    public Platform add(Platform p) {
+        return null;
+    }
 }

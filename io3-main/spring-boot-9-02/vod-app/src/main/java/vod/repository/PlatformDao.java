@@ -13,4 +13,6 @@ public interface PlatformDao {
 
     List<Platform> findByGame(Game m);
 
+    Platform add(Platform p);
+
 }

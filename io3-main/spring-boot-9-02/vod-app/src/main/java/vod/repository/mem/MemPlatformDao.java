@@ -27,4 +27,12 @@ public class MemPlatformDao implements PlatformDao {
     public List<Platform> findByGame(Game m) {
         return SampleData.platforms.stream().filter(c -> c.getGames().contains(m)).collect(Collectors.toList());
     }
+
+    @Override
+    public Platform add(Platform p) {
+        int max = SampleData.platforms.stream().max((p1, p2) -> p1.getId() - p2.getId()).get().getId();
+        p.setId(++max);
+        SampleData.platforms.add(p);
+        return p;
+    }
 }
